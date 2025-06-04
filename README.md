@@ -133,3 +133,13 @@ This project is released under the MIT License.
 
 - Thanks to the developers of the ESP32 Arduino Core, TinyGPS++, U8g2, and other libraries used in this project.
 - Appreciation to the ESP32 community for ongoing support and inspiration.
+
+---
+
+## NAN Memory System Prototype
+
+This repository also includes a small Python prototype located in `nan.py` and
+`nan_cli.py`. The updated version stores all agent memory in a Redis server and
+can generate memory items using a local [Ollama](https://ollama.ai) instance.
+Run `python3 nan_cli.py` to launch an interactive CLI for experimenting with
+agents, their Redis-backed memory stores, and on-demand text generation.
