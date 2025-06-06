@@ -146,12 +146,3 @@ agents, their Redis-backed memory stores, and on-demand text generation.
 
 ## Network Scanner Utility
 
-A simple Python-based network scanner is included in `net_gui.py`. It discovers devices on your local network using ARP and displays them in a Tkinter GUI. Double-click a listed host to open a web-based SSH terminal via the `webssh` package.
-
-Run the scanner with:
-
-```bash
-python3 net_gui.py
-```
-
-Ensure `scapy` and `webssh` are installed (use `pip install scapy webssh`).
