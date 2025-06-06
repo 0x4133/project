@@ -146,12 +146,19 @@ agents, their Redis-backed memory stores, and on-demand text generation.
 
 ## Network Scanner Utility
 
-A simple Python-based network scanner is included in `net_gui.py`. It discovers devices on your local network using ARP and displays them in a Tkinter GUI. Double-click a listed host to open a web-based SSH terminal via the `webssh` package.
+The original Python network scanner has been rewritten in Go for better
+compatibility with NixOS. The new implementation resides in `net_gui.go` and
+uses the [Fyne](https://fyne.io) GUI toolkit.
 
-Run the scanner with:
+It scans a subnet using ARP, lists the discovered devices, and opens a
+web-based SSH session (provided by the `wssh` command) when you select a host.
+
+Build and run with:
 
 ```bash
-python3 net_gui.py
+go run net_gui.go
 ```
 
-Ensure `scapy` and `webssh` are installed (use `pip install scapy webssh`).
+Ensure Go is available on your system. On NixOS you can enter a shell with
+`nix-shell -p go`. The `wssh` tool is still required to launch the SSH web
+terminal.
