@@ -143,3 +143,31 @@ This repository also includes a small Python prototype located in `nan.py` and
 can generate memory items using a local [Ollama](https://ollama.ai) instance.
 Run `python3 nan_cli.py` to launch an interactive CLI for experimenting with
 agents, their Redis-backed memory stores, and on-demand text generation.
+
+## Network Scanner Utility
+
+The original Python network scanner has been rewritten in Go for better
+compatibility with NixOS. The new implementation resides in `net_gui.go` and
+uses the [Fyne](https://fyne.io) GUI toolkit.
+
+It scans a subnet using ARP, lists the discovered devices, and opens a
+web-based SSH session (provided by the `wssh` command) when you select a host.
+
+Newly discovered devices are highlighted with a colored status square so you can
+see at a glance which hosts are new since the last scan.
+
+Build and run with:
+
+```bash
+# for X11 environments
+go run net_gui.go
+
+# or for Wayland systems
+go run -tags wayland net_gui.go
+```
+
+Ensure Go is available on your system. On NixOS you can enter a shell with
+`nix-shell -p go`. When using Wayland, you also need development headers such as
+`libwayland-dev`, `libxkbcommon-dev`, `libegl1-mesa-dev`, and `libgl1-mesa-dev`
+installed (or the equivalents for your distribution). The `wssh` tool is still
+required to launch the SSH web terminal.
