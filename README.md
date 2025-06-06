@@ -143,3 +143,15 @@ This repository also includes a small Python prototype located in `nan.py` and
 can generate memory items using a local [Ollama](https://ollama.ai) instance.
 Run `python3 nan_cli.py` to launch an interactive CLI for experimenting with
 agents, their Redis-backed memory stores, and on-demand text generation.
+
+## Network Scanner Utility
+
+A simple Python-based network scanner is included in `net_gui.py`. It discovers devices on your local network using ARP and displays them in a Tkinter GUI. Double-click a listed host to open a web-based SSH terminal via the `webssh` package.
+
+Run the scanner with:
+
+```bash
+python3 net_gui.py
+```
+
+Ensure `scapy` and `webssh` are installed (use `pip install scapy webssh`).
